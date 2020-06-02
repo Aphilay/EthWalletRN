@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import HomeScreen from "./src/screens/HomeScreen";
 import DeviceInfo from "react-native-device-info";
 //import "./shim.js";
-//import wallet from ("eth-wallet-light")
-//or
 //const wallet = require("eth-wallet-light");
 
 export default function App() {
@@ -13,7 +11,7 @@ export default function App() {
   const [publicKey, setPublicKey] = useState("");
   const [privateKey, setPrivateKey] = useState("");
 
-  // run this upon intial upload of the application
+  // run this upon initial upload of the application
   useEffect(() => {
     getDeviceID();
     getKeyPair();
@@ -28,15 +26,14 @@ export default function App() {
     setUniqueID(deviceID);
   }
 
-  //TO DO: Complete eth-wallet-light installation
+  //TO DO: complete rn-nodeify installation
   //rn-nodeify install and shimming did not seem to work
   //Using placeholder code for now
-
   function getKeyPair() {
     /*   
     const deviceID = uniqueID 
 
-    //TODO: when using await turn this function into an ASYNC function
+    //turn this function into an async 
     let keystore = await new wallet.Keystore().initializeFromEntropy('entropy', deviceID)
     
     console.log('Public Address: ', keystore.getAddress())
