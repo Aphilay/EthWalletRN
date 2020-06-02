@@ -5,3 +5,13 @@
 - The address and private key generated is different for each unique device the app runs on.
 
 - Lighting up the app multiple times on the same device must generate the same address and private key every time. 
+
+## Quickstart:
+```
+In project root directory:
+
+npm install
+react-native run-ios
+
+```
+
