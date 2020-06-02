@@ -1,30 +1,23 @@
 // this screen is the home screen which uses the KeyDisplay component as a child component
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import KeyDisplay from "../components/KeyDisplay";
 
-const HomeScreen = () => {
-  //useState react hook to manage the state of keys
-  //initial value is an empty string => ""
-  const [publicKey, setPublicKey] = useState("");
-  const [privateKey, setPrivateKey] = useState("");
-
-  const generateKeyPair = () => {
-    setPublicKey("public key");
-    setPrivateKey("private key");
-  };
-
+const HomeScreen = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Ember Ethereum Wallet</Text>
+
       <View style={styles.keyContainer}>
-        <KeyDisplay label={"Public Key: "} generatedKey={publicKey} />
-        <KeyDisplay label={"Private Key: "} generatedKey={privateKey} />
+        <KeyDisplay label={"Public Key: "} generatedKey={props.publicKey} />
+        <KeyDisplay label={"Private Key: "} generatedKey={props.privateKey} />
       </View>
 
       <TouchableHighlight
         style={styles.button}
-        onPress={() => generateKeyPair()}
+        onPress={() => {
+          props.generateNewKeyPair();
+        }}
         underlayColor="dimgray"
       >
         <Text style={styles.buttonText}>Generate a new one</Text>
